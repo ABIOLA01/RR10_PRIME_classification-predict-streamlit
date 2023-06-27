@@ -47,24 +47,24 @@ def main():
 
 	# Creates a main title and subheader on your page -
 	# these are static across all pages
-	st.title("PARBI CLASSIFIER")
+	st.title("PRIME CLASSIFIER")
 	st.subheader("Climate change tweet classification")
 
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
-	options = ["Home", "Explore", "Feature Engineering", "Prediction", "About Us", "Contact Us"]
+	options = ["Home", "View", "Feature Engineering", "Prediction", "About Us", "Contact Us"]
 	selection = st.sidebar.radio("Choose Option", options)
 
 	# Building out the "Home" page
 	if selection == "Home":
-		image = Image.open('resources/imgs/home.jpg')
+		image = Image.open('resources/imgs/climate-change.jpg')
 		st.image(image, caption='Climate Change')
 
-		st.markdown("### Not just an app, it's a revolution!")
-		st.write("The PARBI Classifier App is based on Machine Learning models that are able to classify whether or not a person believes in climate change based on their novel tweet data. This precise and robust response to people's perceptions of climate change lays the groundwork for the next level of business revolution, which is more focused on their customers.")
+		st.markdown("### Not just an app But solution made handy!")
+		st.write("The Prime Classifier App provides data and analytics solutions that enable clients to gain valuable insights from their data, make informed decisions in a timely manner, and consistently stay ahead of the competition.")
 
-	# Building out the "Explore" page
-	if selection == "Explore":
+	# Building out the "View" page
+	if selection == "View":
 		st.markdown("### Exploratory Data Analysis (EDA)")
 		# You can read a markdown file from supporting resources folder
 		st.markdown("This section contains insights on the loaded dataset and its output")
@@ -82,16 +82,16 @@ def main():
 				st.image(image)
 			else:
 				with st.expander('Pro'):
-					image = Image.open('resources/imgs/pro1.png')
+					image = Image.open('resources/imgs/pro.png')
 					st.image(image)
 				with st.expander('News'):
-					image = Image.open('resources/imgs/news1.png')
+					image = Image.open('resources/imgs/news.png')
 					st.image(image)
 				with st.expander('Neutral'):
-					image = Image.open('resources/imgs/neutral1.png')
+					image = Image.open('resources/imgs/neutral.png')
 					st.image(image)
 				with st.expander('Anti'):
-					image = Image.open('resources/imgs/anti1.png')
+					image = Image.open('resources/imgs/Anti.png')
 					st.image(image)
 
 	# Building out the "Feature Engineering" page
@@ -103,33 +103,34 @@ def main():
 		# Display the unprocessed data
 		st.markdown("##### Balancing of data")
 		if st.checkbox('Show unbalanced data'): # data is hidden if box is unchecked
-			image = Image.open('resources/imgs/dist_sent.png')
-			st.image(image)
+			image = Image.open('resources/imgs/unbalanced.png')
+			image1 = image.resize((800, 700))
+			st.image(image1)
 
 		if st.checkbox('Show balanced data'): # data is hidden if box is unchecked
 			image = Image.open('resources/imgs/balanced.png')
-			st.image(image)
+			image1 = image.resize((800, 700))
+			st.image(image1)
+
 
 	# Building out the predication page
 	if selection == "Prediction":
 		st.info("Prediction with ML Models")
 		option = st.sidebar.selectbox(
             'Select the model from the Dropdown',
-            ('Logistic Regression', 'Decision Tree', 'SVM', 'KNeighbors', 'Random Forest'))
+            ('Logistic Regression', 'Decision Tree', 'KNeighbors', 'Random Forest'))
 		# Creating a text box for user input
 		tweet_text = st.text_area("Enter Text","Type Here")
 
 		# model selection options
 		if option == 'Logistic Regression':
-			model = "resources/Logistic_model.pkl"
+			model = "resources/lgr.pkl"
 		elif option == 'Decision Tree':
-			model = "resources/Decision_tree_model.pkl"
-		elif option == 'SVM':
-			model = "resources/Support Vector_model.pkl"
+			model = "resources/dtc.pkl"
 		elif option == 'KNeighbors':
-			model = "resources/KNeighbors_model.pkl"
+			model = "resources/knc.pkl"
 		else:
-			model = "resources/Random Forest_model.pkl"
+			model = "resources/rf.pkl"
 
 		if st.button("Classify"):
 			# Transforming user input with vectorizer
@@ -156,51 +157,53 @@ def main():
 
 	# Building out the About Us page
 	if selection == "About Us":
-		st.info("PARBI Tech Consultancy")
-		st.write("PARBI Tech Consultancy provides data and analytics services that enable data-driven insights, well-timed and informed decisions that consistently position the company's clents ahead of the curve.")
+		st.info("Prime Tech Consult")
+		st.write("Prime Tech Consult provides data and analytics solutions that enable clients to gain valuable insights from their data, make informed decisions in a timely manner, and consistently stay ahead of the competition.")
 		
 		st.info("Our Vision:")
-		st.write("To be the leading global data-driven solutions provider")
+		st.write("To be the lead Tech Solution Plug")
 
 		st.info("Meet the team")
-		Rumbie = Image.open('resources/imgs/rumbie.jpg')
-		Rumbie1 = Rumbie.resize((150, 155))
-		Isaac = Image.open('resources/imgs/isaac.jpg')
-		Isaac1 = Isaac.resize((150, 155))
-		Bongani = Image.open('resources/imgs/bongani.jpeg')
-		Bongani1 = Bongani.resize((150, 155))
-		Qudus = Image.open('resources/imgs/qudus.jpg')
-		Qudus1 = Qudus.resize((150, 155))
-		Peter = Image.open('resources/imgs/peter.jpg')
-		Peter1 = Peter.resize((150, 155))
+		Damola = Image.open('resources/imgs/damola.png')
+		Damola1 = Damola.resize((150, 155))
+		Confidence = Image.open('resources/imgs/confidence.JPG')
+		Confidence1 = Confidence.resize((150, 155))
+		Akani = Image.open('resources/imgs/akani.PNG')
+		Akani1 = Akani.resize((150, 155))
+		Seye = Image.open('resources/imgs/seye.png')
+		Seye1 = Seye.resize((150, 155))
+		Samuel = Image.open('resources/imgs/samuel.png')
+		Samuel1 = Samuel.resize((150, 155))
 
-		col1, col2, col3 = st.columns(3)
+		col1, col2, col3, col4 = st.columns(4)
 		with col2:
-			st.image(Rumbie1, width=150, caption="Rumbie: Team Lead")
-		
-		col1, col2, col3, col4= st.columns(4)
-		with col1:
-			st.image(Isaac1, width=150, caption="Isaac: Technical Lead")
-		with col2:
-			st.image(Bongani1, width=150, caption="Bongani: Project Manager")
+			st.image(Damola1, width=150, caption="Damola: Team Lead")
 		with col3:
-			st.image(Qudus1, width=150, caption="Qudus: Senior Data Scientist")
-		with col4:
-			st.image(Peter1, width=150, caption="Peter: Technical Support")
+			st.image(Confidence1, width=150, caption="Confidence: Technical Lead")
+		
+		col1, col2, col3 = st.columns(3)
+		
+		with col1:
+			st.image(Akani1, width=150, caption="Akani: Project Manager")
+		with col2:
+			st.image(Seye1, width=150, caption="Seye: Data Scientist")
+		
+		with col3:
+			st.image(Samuel1, width=150, caption="Samuel: Data Scientist")
 
 	# Build the Contact us page
 	if selection == "Contact Us":
-		image = Image.open('resources/imgs/contactus.jpeg')
+		image = Image.open('resources/imgs/contactus.PNG')
 		st.image(image)
 		
 		col1, col2 = st.columns(2)
 		with col1:
 			st.subheader("Contact info")
-			st.write("82, Bush Willow Lane")
-			st.write("Johannesburg, 2086, South Africa")
-			st.write("Telephone:+234 7036172544")
-			st.write("WhatsApp:+234 8093224263")
-			st.write("Email: info@parbitech.com")
+			st.write("44, Idumota, Lagos")
+			st.write("Lagos, Nigeria")
+			st.write("Telephone:+234 8038930893")
+			st.write("WhatsApp:+234 8038930893")
+			st.write("Email: info@primetech.com")
 			
 		with col2:
 			st.subheader("Send Us")
