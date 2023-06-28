@@ -184,7 +184,11 @@ def main():
 		col1, col2, col3 = st.columns(3)
 		
 		with col1:
+<<<<<<< HEAD
+			st.image(Akani1, width=150, caption="Akanni: Project Manager")
+=======
 			st.image(Akani1, width=150, caption="Akani: Project Manager")
+>>>>>>> 43cd349be4971028f12cdf7b09c4c1fc9fea421f
 		with col2:
 			st.image(Seye1, width=150, caption="Seye: Data Scientist")
 		
